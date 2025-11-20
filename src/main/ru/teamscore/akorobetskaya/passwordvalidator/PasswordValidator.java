@@ -5,7 +5,7 @@ package ru.teamscore.akorobetskaya.passwordvalidator;
  * - не менее 8 символов в длину
  * - содержит строчные, заглавные буквы и цифры
  * - не должен совпадать с имененем пользователя
- * - не должен содержать пробельных символов и кавычек
+ * - не должен содержать пробельных символов, табуляции и кавычек
  */
 public class PasswordValidator {
     /**
@@ -28,6 +28,9 @@ public class PasswordValidator {
             return false;
         }
         if (password == userName) {
+            return false;
+        }
+        if (hasSpacesOrQuotes(password)) {
             return false;
         }
         return true;
@@ -54,6 +57,16 @@ public class PasswordValidator {
     private static boolean hasUppercase(String text) {
         for (char symbol : text.toCharArray()) {
             if (Character.isUpperCase(symbol)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean hasSpacesOrQuotes(String text) {
+        for (char symbol : text.toCharArray()) {
+            if (Character.isSpaceChar(symbol)
+                    || symbol == '\t' || symbol == '"') {
                 return true;
             }
         }

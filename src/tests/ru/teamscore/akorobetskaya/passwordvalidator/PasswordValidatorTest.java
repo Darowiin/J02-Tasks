@@ -62,4 +62,12 @@ class PasswordValidatorTest {
         String username = "TestUser1";
         testPassword(username, username, false);
     }
+
+    @ParameterizedTest
+    @DisplayName("Password has spaces or quotes")
+    @ValueSource(strings =
+            {"qwerty 1234", "_&*^\tBg79", "\"34jdfgER", " \t\r\n\"Rg6*"})
+    public void hasSpacesQuotesPassword(String password) {
+        testPassword(password, "TestUser", false);
+    }
 }
