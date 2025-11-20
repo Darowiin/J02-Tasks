@@ -23,4 +23,19 @@ class PasswordValidatorTest {
         // Assert
         assertEquals(true, validationResult);
     }
+
+    @ParameterizedTest
+    @DisplayName("Valid password is less 8 symbols")
+    @ValueSource(strings =
+            {"abcdefg", "_ _ _ ", "1234", "1", ""})
+    public void tooShortPassword(String password) {
+        // Arrange
+        String username = "TestUser";
+
+        // Act
+        boolean validationResult = PasswordValidator.isValidPassword(password, username);
+
+        // Assert
+        assertEquals(false, validationResult);
+    }
 }

@@ -5,6 +5,7 @@ package ru.teamscore.akorobetskaya.passwordvalidator;
  * - не менее 8 символов в длину
  * - содержит строчные, заглавные буквы и цифры
  * - не должен совпадать с имененем пользователя
+ * - не должен содержать пробельных символов и кавычек
  */
 public class PasswordValidator {
     /**
@@ -14,7 +15,9 @@ public class PasswordValidator {
      * @return возвращает true, если пароль отвечает всем требованиям
      */
     public static boolean isValidPassword(String password, String userName) {
-        // TODO
+        if (password.length() < 8) {
+            return false;
+        }
         return true;
     }
 }
