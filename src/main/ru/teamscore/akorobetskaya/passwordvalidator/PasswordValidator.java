@@ -14,7 +14,7 @@ public class PasswordValidator {
      * @return возвращает true, если пароль отвечает всем требованиям
      */
     public static boolean isValidPassword(String password, String userName) {
-
-        throw new UnsupportedOperationException("Method isValidPassword is not implemented yet");
+        // TODO
+        return true;
     }
 }
