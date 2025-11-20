@@ -55,4 +55,11 @@ class PasswordValidatorTest {
     public void noUpperCasePassword(String password) {
         testPassword(password, "TestUser", false);
     }
+
+    @Test
+    @DisplayName("Password equals username")
+    public void equalsUsernamePassword() {
+        String username = "TestUser1";
+        testPassword(username, username, false);
+    }
 }

@@ -27,6 +27,9 @@ public class PasswordValidator {
         if (!hasUppercase(password)) {
             return false;
         }
+        if (password == userName) {
+            return false;
+        }
         return true;
     }
 
